@@ -5,10 +5,8 @@ def score(game):
     for i in range(len(game)):
         if game[i] == '/':
             result += 10 - last
-        else:
+        elif game[i] != '/':
             result += get_value(game[i])
-        # if not in_first_half:
-            # frame += 1
         if frame < 10  and get_value(game[i]) == 10:
             if game[i] == '/':
                 result += get_value(game[i+1])
@@ -44,4 +42,3 @@ def get_value(char):
     else:
         raise ValueError()
 
-print(score("xxxxx"))
