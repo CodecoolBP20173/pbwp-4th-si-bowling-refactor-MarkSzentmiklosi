@@ -43,3 +43,5 @@ def get_value(char):
         return 0
     else:
         raise ValueError()
+
+print(score("xxxxx"))
