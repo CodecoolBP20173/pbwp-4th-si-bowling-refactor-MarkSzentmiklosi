@@ -1,4 +1,8 @@
 def score(game):
+    """ 
+    Calculates the total score of a bowling game.
+    """
+    
     result = 0
     frame = 1
     in_first_half = True
@@ -8,7 +12,7 @@ def score(game):
             result += 10 - last
         else:
             result += get_value(game[i])
-        if frame < 10  and get_value(game[i]) == 10:
+        if frame < 10 and get_value(game[i]) == 10:
             if game[i] == '/':
                 result += get_value(game[i+1])
             elif game[i] == 'X' or game[i] == 'x':
@@ -17,7 +21,6 @@ def score(game):
                     result += 10 - get_value(game[i+1])
                 else:
                     result += get_value(game[i+2])
-        
         if not in_first_half:
             frame += 1
         if in_first_half == True:
@@ -29,13 +32,17 @@ def score(game):
             frame += 1
     return result
 
+
 def get_value(char):
+    """
+    Returns the value of the actual roll
+    """
+
     if '1' <= char <= '9':
         return int(char)
-    elif char in ["x","X","/"]:
+    elif char in ["x", "X", "/"]:
         return 10
     elif char == '-':
         return 0
     else:
         raise ValueError()
-
